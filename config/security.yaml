@@ -1,0 +1,18 @@
+security:
+    security:
+    firewalls:
+        main:
+            lazy: true
+            provider: users_in_memory  # ou votre provider personnalisé
+            form_login:
+                login_path: app_login
+                check_path: app_login
+                default_target_path: app_dashboard
+            logout:
+                path: app_logout
+
+    access_control:
+        - { path: ^/connexion, roles: PUBLIC_ACCESS }
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/dashboard, roles: ROLE_ADMIN }
+        - { path: ^/home, roles: ROLE_USER }
