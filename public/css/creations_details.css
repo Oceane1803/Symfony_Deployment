@@ -1,0 +1,96 @@
+.creation-details {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.imgdetails{
+    width: 350px;
+    margin: 2%;
+}
+
+/* Effet de base */
+.creation-image {
+    transition: all 0.3s ease;
+}
+
+/* 1. Ombre portée */
+.shadow-effect {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 2. Bordure arrondie */
+.rounded-effect {
+    border-radius: 15px;
+}
+
+/* 3. Effet de zoom au survol */
+.zoom-effect:hover {
+    transform: scale(1.05);
+}
+
+/* 4. Cadre avec rotation */
+.frame-effect {
+    border: 5px solid #3C425A;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+.frame-effect:hover {
+    transform: rotate(2deg);
+}
+
+/* 5. Effet de brillance */
+.shine-effect {
+    position: relative;
+    overflow: hidden;
+}
+.shine-effect::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 100%
+    );
+    transform: rotate(45deg);
+    transition: 0.5s;
+}
+.shine-effect:hover::before {
+    left: 100%;
+    top: 100%;
+}
+
+/*Effet titres articles*/
+h1 {
+    font-family: Papyrus; 
+    font-size:30px; 
+    /*margin: 10px 50px;*/ 
+    letter-spacing: 4px; 
+    font-weight: bold;
+}
+
+/*Sélectionne seulement le premier paragraphe, dans ce cas "taille"*/
+p:first-of-type{
+    margin-top: 2%;
+}
+
+strong {
+    font-family: Papyrus;
+    font-size:18px;
+    color: #CD613F;
+}
+
+/* Bouton fléché vers la gauche */
+.btn-arrow-left {
+    background-color: #3C425A;
+    color: white;
+    clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 50%);
+    padding: 10px 25px 10px 35px; /* Ajustement du padding pour l'équilibre */
+}
+
+.btn-arrow-left:hover{
+    color: #CD613F;
+}
