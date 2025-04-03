@@ -1,0 +1,65 @@
+{# templates/creation/personnaliser.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Personnaliser {{ creation.nom }}{% endblock %}
+
+{% block body %}
+    <div class="container my-4">
+        <div class="row">
+            <div class="col-md-6">
+                {# Aperçu de l'article #}
+                <div class="card">
+                    {% if creation.imagePath %}
+                        <img src="{{ asset('uploads/creations/' ~ creation.imagePath) }}" alt="{{ creation.nom }}" class="card-img-top">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ creation.nom }}</h5>
+                        <p class="card-text">
+                            Prix de base: {{ creation.prix }}€
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                {# Formulaire de personnalisation #}
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Personnalisez votre article</h5>
+                        
+                        {{ form_start(form, {'attr': {'class': 'needs-validation', 'novalidate': 'novalidate'}}) }}
+                            
+                            <div class="mb-3">
+                                {{ form_label(form.couleur, 'Couleur souhaitée') }}
+                                {{ form_widget(form.couleur, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_errors(form.couleur) }}
+                            </div>
+
+                            <div class="mb-3">
+                                {{ form_label(form.taille, 'Taille') }}
+                                {{ form_widget(form.taille, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_errors(form.taille) }}
+                            </div>
+
+                            <div class="mb-3">
+                                {{ form_label(form.message, 'Message personnalisé') }}
+                                {{ form_widget(form.message, {'attr': {'class': 'form-control', 'rows': '3'}}) }}
+                                {{ form_errors(form.message) }}
+                            </div>
+
+                            <div class="mb-3">
+                                {{ form_label(form.quantite, 'Quantité') }}
+                                {{ form_widget(form.quantite, {'attr': {'class': 'form-control', 'min': '1'}}) }}
+                                {{ form_errors(form.quantite) }}
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Ajouter au panier</button>
+                            <a href="{{ path('creation_index') }}" class="btn btn-secondary">Retour</a>
+
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

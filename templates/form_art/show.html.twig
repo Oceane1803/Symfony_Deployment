@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FormArt{% endblock %}
+
+{% block body %}
+    <h1>FormArt</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ form_art.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_form_art_index') }}">back to list</a>
+
+    <a href="{{ path('app_form_art_edit', {'id': form_art.id}) }}">edit</a>
+
+    {{ include('form_art/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block details_css %}
+    <link rel="stylesheet" href="{{ asset('css/creations_details.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/image_effects.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row creation-details">
+            <div class="col-md-4 image-container">
+                {% if creation.imagePath %}
+                    <img id="imgdetails" src="{{ asset('uploads/creations/' ~ creation.ImagePath) }}" 
+                         alt="{{ creation.nom }}" 
+                         class="img-fluid creation-image custom-margin shadow-effect rounded-effect zoom-effect frame-effect shine-effect">
+                {% else %}
+                    <p>Aucune image disponible</p>
+                {% endif %}
+            </div>
+            <div class="col-md-8 info-container">
+                <div id="typedtext">
+                    <h1 id="creation-title">{{ creation.nom }}</h1>
+                </div>
+                <p><strong>Taille:</strong> {{ creation.taille }}</p>
+                <p><strong>Prix:</strong> {{ creation.prix }}€</p>
+                <p><strong>Description:</strong> {{ creation.description }}</p>
+                <a href="{{ path('app_creations') }}" class="btn btn-arrow-left">Retourner aux articles</a>
+            </div>
+        </div>
+    </div>
+
+    {% block javascripts %}
+        <script src="{{ asset('js/titreanim.js') }}"></script>
+    {% endblock %}
+
+{% endblock %}

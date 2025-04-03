@@ -1,0 +1,15 @@
+{# templates/edit_art/edit.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier l'article{% endblock %}
+
+{% block body %}
+    <h1>Modifier l'article</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit">Enregistrer les modifications</button>
+    {{ form_end(form) }}
+
+    <a href="{{ path('app_creations') }}">Retour à la liste</a>
+{% endblock %}
