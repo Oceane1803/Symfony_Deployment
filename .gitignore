@@ -1,0 +1,27 @@
+# Symfony Standard Edition (ignore les répertoires générés)
+/var/
+/vendor/
+/node_modules/
+
+# Fichiers de log
+*.log
+
+# Fichiers de cache
+/.idea/
+/.vscode/
+
+# Fichiers d'environnement sensibles
+/.env
+/.env.local
+/.env.*.local
+
+# Répertoires de configuration
+/config/secrets/
+/config/jwt
+
+# Dossier de compilation
+/.phpunit.result.cache
+
+# Fichiers de sauvegarde de l'éditeur
+*~
+*.swp
