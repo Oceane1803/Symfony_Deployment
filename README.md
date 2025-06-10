@@ -2,6 +2,7 @@
 
 Tissu Magique est un site web vitrine développé en Symfony pour une couturière souhaitant présenter ses créations et gagner en visibilité auprès de ses futurs clients.
 
+
 🌐 Objectif du projet
 
 Créer un site web responsive, moderne et administrable permettant de :
@@ -14,9 +15,10 @@ Offrir un formulaire de contact simple et efficace
 
 Permettre une gestion des contenus via un espace d’administration
 
+
 🔧 Technologies utilisées
 
-Symfony (PHP 8+)
+Symfony
 
 Twig (moteur de templates)
 
