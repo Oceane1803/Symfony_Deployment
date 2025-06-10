@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+
+         {% block details_css %}{% endblock %}
+         {% block formart_css %}{% endblock %}
+        
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+    </head>
+    
+    <body>
+        <header class="header">
+            <img src="{{ asset('uploads/creations/placeholder-logo.png') }}" alt="Tissu Magique" class="logo">
+        </header>
+
+        <nav class="nav">
+    <div class="container">
+        <ul>
+            <li><a href="{{ path('app_home') }}" {% if app.request.get('_route') == 'app_home' %}class="active"{% endif %}>Accueil</a></li>
+            <li><a href="{{ path('app_creations') }}" {% if app.request.get('_route') == 'app_creations' %}class="active"{% endif %}>Créations</a></li>
+            <li><a href="{{ path('app_about') }}" {% if app.request.get('_route') == 'app_about' %}class="active"{% endif %}>À propos</a></li>
+            <li><a href="{{ path('app_contact') }}" {% if app.request.get('_route') == 'app_contact' %}class="active"{% endif %}>Contact</a></li>
+            {% if app.user %}
+                <li><a href="{{ path('app_logout') }}" class="nav-logout">Déconnexion</a></li>
+            {% else %}
+                <li><a href="{{ path('app_login') }}" {% if app.request.get('_route') == 'app_login' %}class="active"{% endif %}>Connexion</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+
+        <main>
+            {% block body %}{% endblock %}
+        </main>
+
+        <footer class="footer" style="background-color: #CD613F; color: white; padding: 20px;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+        <!-- Logo ou nom du site -->
+        <div style="flex: 1; text-align: left; margin-bottom: 10px;">
+            <p style="margin: 0; font-weight: bold; font-size: 1.2em;">&copy; 2024 Tissu Magique</p>
+            <p style="margin: 0; font-size: 0.9em; color: white;">Des créations uniques avec passion et précision.</p>
+        </div>
+
+        <!-- Informations pratiques -->
+        <div style="flex: 1; text-align: center; margin-bottom: 10px;">
+            <p style="margin: 0; font-size: 0.9em; color: white;"><strong>Adresse :</strong> 123 Rue de la Couture, 75001 Paris, France</p>
+            <p style="margin: 0; font-size: 0.9em; color: white;"><strong>Horaires :</strong> Lundi - Vendredi : 9h00 - 18h00</p>
+            <p style="margin: 0; font-size: 0.9em; color: white;"><strong>Téléphone :</strong> <a href="tel:+33123456789" style="text-decoration: none; color: white;">01 23 45 67 89</a></p>
+        </div>
+
+        <!-- Navigation footer -->
+        <div style="flex: 1; text-align: right; margin-bottom: 10px;">
+            <ul style="list-style: none; margin: 0; padding: 0; display: inline-flex; gap: 15px;">
+                <li>
+                    <a href="mentions-legales.php" style="text-decoration: none; color: white; font-size: 0.9em;">Mentions légales</a>
+                </li>
+                <li>
+                    <a href="politique-confidentialité.php" style="text-decoration: none; color: white; font-size: 0.9em;">Politique de confidentialité</a>
+                </li>
+                <li>
+                    <a href="CGV.php" style="text-decoration: none; color: white; font-size: 0.9em;">Conditions générales de vente</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </body>
+</html>

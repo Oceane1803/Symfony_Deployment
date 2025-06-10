@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>Filtrer les créations</h2>
+    <form method="GET" action="{{ path('app_creations_index') }}" class="mb-4 d-flex gap-3 align-items-center">
+        <div>
+            <label for="publicCible" class="form-label">Public ciblé :</label>
+            <select name="publicCible" id="publicCible" class="form-select">
+                <option value="" {% if not filter_publicCible %}selected{% endif %}>Tous</option>
+                <option value="homme" {% if filter_publicCible == 'homme' %}selected{% endif %}>Homme</option>
+                <option value="femme" {% if filter_publicCible == 'femme' %}selected{% endif %}>Femme</option>
+                <option value="enfant" {% if filter_publicCible == 'enfant' %}selected{% endif %}>Enfant</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="categorie" class="form-label">Catégorie :</label>
+            <select name="categorie" id="categorie" class="form-select">
+                <option value="" {% if not filter_categorie %}selected{% endif %}>Toutes</option>
+                <option value="jupe" {% if filter_categorie == 'jupe' %}selected{% endif %}>Jupe</option>
+                <option value="tee-shirt" {% if filter_categorie == 'tee-shirt' %}selected{% endif %}>Tee-shirt</option>
+                <option value="robe" {% if filter_categorie == 'robe' %}selected{% endif %}>Robe</option>
+                <option value="pantalon" {% if filter_categorie == 'pantalon' %}selected{% endif %}>Pantalon</option>
+                <option value="veste" {% if filter_categorie == 'veste' %}selected{% endif %}>Veste</option>
+                <option value="accessoire" {% if filter_categorie == 'accessoire' %}selected{% endif %}>Accessoire</option>
+            </select>
+        </div>
+
+        <div class="align-self-end">
+            <button type="submit" class="btn btn-primary">Filtrer</button>
+            <a href="{{ path('app_creations_index') }}" class="btn btn-secondary ms-2">Réinitialiser</a>
+        </div>
+    </form>
+
+    <div class="row">
+        {% for creation in creations %}
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    {% if creation.imagePath %}
+                        <img src="{{ asset('uploads/images/' ~ creation.imagePath) }}" alt="{{ creation.nom }}" class="card-img-top">
+                    {% else %}
+                        <p class="text-center py-4">No image available</p>
+                    {% endif %}
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">{{ creation.nom }}</h5>
+                        <p class="card-text">Taille: {{ creation.taille }} <br> Prix: {{ creation.prix }}€</p>
+                        <div class="mt-auto d-flex gap-2 flex-wrap">
+                            {# Bouton "Voir détails" visible pour tous #}
+                            <a href="{{ path('creation_details', {'id': creation.id}) }}" class="btn btn-primary btn-sm">Voir détails</a>
+
+                            {# Boutons visibles uniquement pour l'admin #}
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <a href="{{ path('app_creations_edit', {'id': creation.id}) }}" class="btn btn-warning btn-sm">Modifier</a>
+                                <form action="{{ path('app_creations_delete', {'id': creation.id}) }}" method="POST" class="d-inline" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette création ?');">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ creation.id) }}">
+                                    <button type="submit" class="btn btn-danger btn-sm" title="Supprimer">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </form>
+                            {% endif %}
+
+                            {# Bouton "Personnaliser" visible uniquement pour les utilisateurs non-admin #}
+                            {% if is_granted('ROLE_USER') and not is_granted('ROLE_ADMIN') %}
+                                <a href="{{ path('app_personnaliser', {'id': creation.id}) }}" class="btn btn-warning btn-sm">Personnaliser</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <p>Aucune création ne correspond aux critères.</p>
+        {% endfor %}
+    </div>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endblock %}

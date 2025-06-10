@@ -1,0 +1,245 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #F4FAFB;
+    color: #3C425A;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    flex: 1 0 auto;
+    background-color: white;
+}
+
+.header {
+    background-color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+.nav {
+    background-color: #3C425A;
+    padding: 10px 0;
+}
+.nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav ul li {
+    margin: 0 15px;
+}
+.nav ul li a {
+    color: white !important; /* Pour écraser les styles de Bootstrap */
+    text-decoration: none;
+}
+.nav ul li a.active {
+    color: #CD613F !important;
+}
+.swiper-container {
+    width: 100%;
+    height: 300px;
+}
+.swiper-slide {
+    background-color: #335F8A;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+.products {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+.product {
+    background-color: #335F8A;
+    color: white;
+    width: 30%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h2 {
+    color: #3C425A;
+}
+
+.footer {
+    flex-shrink: 0;
+    background-color: #f8f9fa;
+    padding: 20px 0;
+}
+
+/* Pour ajouter du style au footer */
+.footer {
+    background-color: #3C425A;
+    color: #CD613F;
+    padding: 20px 0;
+    margin-top: auto;
+    text-align: center;
+}
+
+
+                                        /*-------------VIGNETTES CREATIONS-------------*/
+.card {
+    display: flex;
+    flex-direction: column;
+    margin: 2%;
+    text-align: center;
+    border: 2px solid #3C425A !important;
+}
+                                                                            
+.card-body {
+    background-color: #85a7c8;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+                                        
+.card-body .d-flex {
+    margin-top: auto;
+    justify-content: center;
+    gap: 0.5rem !important;
+}
+                                        
+/* Style commun pour tous les boutons */
+.card .btn {
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    color: white;
+}
+                                        
+/* Style spécifique pour chaque bouton */
+.card .btn-primary {
+    background-color: #3C425A;
+    border-color: #3C425A;
+}
+                                        
+.card .btn-warning {
+    background-color: #3C425A;
+    border-color: #3C425A;
+}
+                                        
+.card .btn-danger {
+    background-color: #3C425A;
+    border-color: #3C425A;
+    padding: 0.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+                                        
+/* Hover effects */
+.card .btn:hover {
+    background-color: #CD613F;
+    border-color: #CD613F;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* CONTACT */
+.containermail {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.containermail h1 {
+    text-align: center;
+    color: #002D33;
+    font-size: 32px;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+}
+
+.containermail form {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.containermail label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 600;
+}
+
+.containermail input[type="text"],
+.containermail input[type="email"],
+.containermail textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #789F8D;
+    border-radius: 6px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+}
+
+.containermail textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.containermail .btn-primary {
+    background-color: #3C425A;
+    color: #ffffff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Cormorant Garamond', serif;
+    display: block;
+    width: 100%;
+}
+
+.containermail .btn-primary:hover {
+    background-color: #CD613F;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.alert {
+    background-color: #39a673;
+    color: white;
+    padding: 15px;
+    border-radius: 6px;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.alert-success {
+    background-color: #39a673;
+}
+
+.alert-danger {
+    background-color: #dc3545;
+}
+
+.alert-warning {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.alert-info {
+    background-color: #17a2b8;
+}

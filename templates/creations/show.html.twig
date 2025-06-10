@@ -1,0 +1,12 @@
+{# templates/creations/show.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>{{ creation.nom }}</h1>
+        <p><strong>Taille:</strong> {{ creation.taille }}</p>
+        <p><strong>Prix:</strong> {{ creation.prix }} €</p>
+        <p><strong>Description:</strong> {{ creation.description }}</p>
+        <a href="{{ path('app_creations_index') }}" class="btn btn-secondary">Retour à la liste</a>
+    </div>
+{% endblock %}

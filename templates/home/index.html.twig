@@ -1,0 +1,152 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" />
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F4FAFB;
+        }
+        .nav {
+        background-color: #3C425A;
+        padding: 10px 0;
+    }
+    .nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .nav ul li {
+        margin: 0 15px;
+    }
+    .nav ul li a {
+        color: white;
+        text-decoration: none;
+    }
+    .nav ul li a.active {
+        color: #CD613F;
+    }
+
+        .logo-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .logo-container img {
+            max-width: 150px;
+        }
+    h2 {
+        text-align: center;
+        color: #FF6600; /* Orange vif */
+        margin-bottom: 20px;
+    }
+    .card {
+        border: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .card img {
+        height: 200px;
+        object-fit: cover;
+    }
+    .card-title {
+        color: #3C425A;
+        font-size: 18px;
+    }
+    .content {
+        margin: 40px 0;
+    }
+
+</style>
+{% endblock %}
+
+{% block body %}
+
+<!-- Nouveautés Section -->
+<div class="container">
+    <div id="nouveautes" class="content">
+        <h2><strong>Nouveautés</strong></h2>
+        <div class="row">
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card">
+                    <img src="{{ asset('uploads/images/jupe_enfant.jpeg') }}" class="card-img-top" alt="Robe années 50">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Jupe tutu enfant</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card">
+                    <img src="{{ asset('uploads/images/Sac.jpeg') }}" class="card-img-top" alt="Veste côtelée">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Tote bag</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card">
+                    <img src="{{ asset('uploads/images/Veste_epaisse.jpeg') }}" class="card-img-top" alt="Veste d'hiver">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Veste en laine rouge</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card">
+                    <img src="{{ asset('uploads/images/tee_homme.jpeg') }}" class="card-img-top" alt="Robe enfant">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Tee shirt basique homme</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Coups de cœur Section -->
+    <div id="coeur" class="content">
+        <h2><strong>Coups de cœur</strong></h2>
+        <div class="row">
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card">
+                    <img src="{{ asset('uploads/images/robe_chambre_homme.jpeg') }}" class="card-img-top" alt="Robe années 50">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Robe de chambre homme</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card">
+                    <img src="{{ asset('uploads/images/Robe-enfant.jpeg') }}" class="card-img-top" alt="Veste côtelée">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Robe pour enfant</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card">
+                    <img src="{{ asset('uploads/images/Veste.jpeg') }}" class="card-img-top" alt="Bob rose">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Veste en laine coloré</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card">
+                    <img src="{{ asset('uploads/images/tee_enfant.jpeg') }}" class="card-img-top" alt="Sac à main">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Tee shirt imprimé enfant</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}
